@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>FightKaro - The Parody Fighting Game</title>
+    <meta name="description" content="A 2D satire browser fighting game with real-time multiplayer, unique caricature fighters, and special Shakti super moves.">
+    <meta name="theme-color" content="#ff9933">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚔️</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        body {
+            background-color: #05050d;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 50px rgba(255, 153, 51, 0.15);
+        }
+
+        canvas {
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+            touch-action: none;
+        }
+
+        /* Portrait rotate reminder */
+        #rotate-reminder {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #0f0b18;
+            color: #ffcc00;
+            z-index: 9999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 24px;
+        }
+
+        #rotate-reminder span {
+            font-size: 56px;
+            margin-bottom: 16px;
+            animation: rotateIcon 2s infinite ease-in-out;
+        }
+
+        @keyframes rotateIcon {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(90deg); }
+        }
+
+        @media (orientation: portrait) and (max-width: 768px) {
+            #rotate-reminder {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="rotate-reminder">
+        <span>📱🔄</span>
+        <h2 style="font-size: 24px; font-weight: 800; margin-bottom: 8px; color: #ff9933;">ROTATE YOUR PHONE</h2>
+        <p style="color: #ffffff; font-size: 15px; max-width: 280px;">Please rotate your device to landscape mode for the ultimate fighting experience!</p>
+    </div>
+
+    <div id="game-container"></div>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
